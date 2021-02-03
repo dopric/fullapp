@@ -2,7 +2,9 @@ const express = require('express')
 const routes = require('./routes')
 const app = express()
 
-app.use(routes)
+app.use(express.static(__dirname + "/public"))
+
+app.get('/', routes)
 
 app.set('view engine', 'ejs')
 
