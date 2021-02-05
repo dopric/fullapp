@@ -2,7 +2,7 @@ const express = require('express')
 const routes = require('./routes')
 const app = express()
 const session = require('express-session')
-const halfHour = 1000 * 30;
+const halfHour = 1000 * 60 * 30;
 const {
     PORT = 3000,
     NODE_ENV = "development",
@@ -34,6 +34,6 @@ app.get('/', routes)
 app.set('view engine', 'ejs')
 
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("server is listening on port 3000")
 })

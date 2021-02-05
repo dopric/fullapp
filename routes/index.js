@@ -3,6 +3,7 @@ const router = express.Router()
 
 router.use('/', require('./home'))
 router.use('/login',  require('../controllers/loginController'))
+router.use('/logout', require('./logout'))
 router.use('/admin', require('../controllers/adminController'))
 
 module.exports = router

@@ -1,10 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const mongo = require('mongojs')
+const db = mongo('freeapp', ['users'])
 
-const adminController = (req, res)=>{
+
+
+router.get('/', (req, res)=>{
    console.log("ADMIN")
-   res.render("admin", {user: req.session.user})
-}
+   res.render("admin/adminDashboard", {user: req.session.user})
+})
 
 
-module.exports = adminController;
+router.get('/createuser', (req, res)=>{
+    res.render('admin/createuser')
+})
+
+module.exports = router;
