@@ -12,7 +12,12 @@ router.get('/', (req, res)=>{
 
 
 router.get('/createuser', (req, res)=>{
-    res.render('admin/createuser')
+    res.render('admin/createuser', {user: req.session.user})
+})
+
+router.post("/createuser/save", (req, res)=>{
+    console.log("save user")
+    res.send("Save " + JSON.stringify(req.body))
 })
 
 module.exports = router;
